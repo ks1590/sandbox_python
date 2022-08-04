@@ -1,14 +1,8 @@
 from multiprocessing import context
 from re import I
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Room
-
-
-rooms = [
-    {'id': 1, 'name': 'Lets learn python!'},
-    {'id': 2, 'name': 'Design with me'},
-    {'id': 3, 'name': 'Frontend developers'},
-]
+from .forms import RoomForm
 
 
 def home(request):
@@ -21,3 +15,15 @@ def room(request, pk):
     room = Room.objects.get(id=pk)
     context = {'room': room}
     return render(request, 'base/room.html', context)
+
+
+def createRoom(request):
+    form = RoomForm()
+    if request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    context = {'form': form}
+    return render(request, 'base/room_form.html', context)
