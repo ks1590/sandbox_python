@@ -1,0 +1,26 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "../node_modules/.bin/tailwind build ../static/css/tailwind.css -o ../static/css/style.css && cleancss -o ../static/css/style.min.css ../static/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ks1590/sandbox_python.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ks1590/sandbox_python/issues"
+  },
+  "homepage": "https://github.com/ks1590/sandbox_python#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.12",
+    "clean-css-cli": "^5.6.1",
+    "tailwindcss": "^3.1.8"
+  }
+}
